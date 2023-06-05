@@ -1,0 +1,15 @@
+{
+  "name": "hafta_8_ara_sinav_cevap",
+  "version": "1.0.0",
+  "description": "Ara Sınav cevabı",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.0.1"
+  }
+}

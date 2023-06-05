@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            td{text-align: center;}
+            .xox{
+                width:25px;
+                font-weight: bold;
+            }
+            table{width: 250px;}
+        </style>
+    </head>
+    <body>
+        <table border="2">
+            <tr>
+                <td colspan="3">
+                    Tic Tac Toe
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Sıradaki
+                </td>
+                <td id="siradaki">
+                    X
+                </td>
+            </tr>
+            <tr>
+                <td><button id="b1" class="xox">&nbsp;</button></td>
+                <td><button id="b2" class="xox">&nbsp;</button></td>
+                <td><button id="b3" class="xox">&nbsp;</button></td>
+            </tr>
+            <tr>
+                <td><button id="b4" class="xox">&nbsp;</button></td>
+                <td><button id="b5" class="xox">&nbsp;</button></td>
+                <td><button id="b6" class="xox">&nbsp;</button></td>
+            </tr>
+            <tr>
+                <td><button id="b7" class="xox">&nbsp;</button></td>
+                <td><button id="b8" class="xox">&nbsp;</button></td>
+                <td><button id="b9" class="xox">&nbsp;</button></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <button id="yB">Yeniden Başlat</button>
+                </td>
+            </tr>
+        </table>
+        <script>
+            function cevir() {
+                var x = document.getElementById("siradaki");
+                if (x.innerHTML.trim() === "X") {
+                    x.innerHTML = "O";
+                } else {
+                    x.innerHTML = "X";
+                }
+            }
+
+            function kazandi(a)
+            {
+                if (a == "X" || a == "O")
+                    alert(a+" kazandı...");
+            }
+
+            function denetim()
+            {
+                let a1 = document.getElementById("b1").innerHTML.trim();
+                let a2 = document.getElementById("b2").innerHTML.trim();
+                let a3 = document.getElementById("b3").innerHTML.trim();
+                let a4 = document.getElementById("b4").innerHTML.trim();
+                let a5 = document.getElementById("b5").innerHTML.trim();
+                let a6 = document.getElementById("b6").innerHTML.trim();
+                let a7 = document.getElementById("b7").innerHTML.trim();
+                let a8 = document.getElementById("b8").innerHTML.trim();
+                let a9 = document.getElementById("b9").innerHTML.trim();
+                // Dizi de olabilir di farkındayız :D
+                if (a1 == a2 && a1 == a3)
+                    kazandi(a1);
+                else if (a4 == a5 && a4 == a6)
+                    kazandi(a4);
+                else if (a7 == a8 && a7 == a9)
+                    kazandi(a7);
+                else if (a1 == a4 && a1 == a7)
+                    kazandi(a1);
+                else if (a2 == a5 && a2 == a8)
+                    kazandi(a2);
+                else if (a3 == a6 && a3 == a9)
+                    kazandi(a3);
+                else if (a1 == a5 && a1 == a9)
+                    kazandi(a1);
+                else if (a3 == a5 && a3 == a7)
+                    kazandi(a3);
+            }
+
+            function tiklandi(a){
+                a.innerHTML = siradaki.innerHTML;
+                cevir();
+                denetim();
+            }
+            let xoxDugmeler = document.querySelectorAll(".xox");
+            xoxDugmeler.forEach(xoxdugme => {
+                xoxdugme.addEventListener('click', () => 
+                    //console.log(xoxdugme.id)
+                    tiklandi(xoxdugme)
+                );
+            });
+            function yenidenBaslat(){
+                let xoxDugmeler = document.querySelectorAll(".xox");
+                xoxDugmeler.forEach(xoxdugme => {
+                    xoxdugme.innerHTML = "&nbsp;";
+                });
+                siradaki.innerHTML = "X";
+            }
+            document.querySelector("#yB").addEventListener('click', () => 
+                    yenidenBaslat()
+                );
+            
+        </script>
+    </body>
+</html>
