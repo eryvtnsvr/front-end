@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button{
+                width: 25px;
+            }
+
+            #sonuc{
+            cursor: pointer;
+    
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    background: #e0e1e2 none;
+    color: rgba(0,0,0,.6);
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    margin: 0 .25em 0 0;
+    padding: .78571429em 1.5em .78571429em;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: 700;
+    line-height: 1em;
+    font-style: normal;
+    text-align: right;
+    text-decoration: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 0 0 2px #fff inset!important;
+    background: transparent none;
+    color: #fff;
+    text-shadow: none!important;
+        }
+        </style>
+
+        <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="semantic/semantic.min.js"></script>
+
+        
+
+    </head>
+    <body>
+        <div class="ui inverted segment">
+        <table class="ui inverted">
+            <tr>
+                <td><button class="ui inverted button" onclick="temizle()">T</button></td>
+                <td colspan="3" align="right" id="sonuc" ></td>
+            </tr>
+            <tr>
+                <td><button class="ui inverted button" onclick="ekle(this)">7</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">8</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">9</button></td>
+                <td><button class="ui inverted button" onclick="islem(this)">/</button></td>
+            </tr>
+            <tr>
+                <td><button class="ui inverted button" onclick="ekle(this)">4</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">5</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">6</button></td>
+                <td><button class="ui inverted button" onclick="islem(this)">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="ui inverted button" onclick="ekle(this)">1</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">2</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">3</button></td>
+                <td><button class="ui inverted button" onclick="islem(this)">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="ui inverted button" onclick="ekle(this)">0</button></td>
+                <td><button class="ui inverted button" onclick="ekle(this)">,</button></td>
+                <td><button class="ui inverted button" onclick="hesapla()">=</button></td>
+                <td><button class="ui inverted button" onclick="islem(this)">+</button></td>
+            </tr>
+        </table>
+    </div>
+
+        <script>
+            const sonuc = document.getElementById("sonuc");
+            var sonucDeger = "";
+            function ekle(eleman){
+                if (sonuc.textContent.length < 8)
+                {
+                    if (eleman.textContent == ","){
+                        if (sonuc.textContent.search(",") == -1)
+                            sonuc.innerHTML += eleman.textContent;
+                    }
+                    else
+                        sonuc.innerHTML += eleman.textContent;
+                }    
+            }
+
+            function islem(islemTipi){
+                sonucDeger += sonuc.innerHTML + islemTipi.textContent;
+                console.log("Ara adım : " + sonucDeger);
+                sonuc.innerHTML = "";
+            }
+
+            function hesapla(){
+                sonucDeger += sonuc.innerHTML;
+                sonucDeger = sonucDeger.replace(",", ".");
+                sonuc.innerHTML = eval(sonucDeger);
+            }
+
+            function temizle(){
+                sonucDeger = "";
+                sonuc.innerHTML = "";
+            }
+        </script>
+    </body>
+</html>
+
