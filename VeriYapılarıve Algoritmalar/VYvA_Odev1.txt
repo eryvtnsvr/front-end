@@ -1,0 +1,19 @@
+[22,27,16,2,18,6] -> Inseriton Sort
+Adım 1 : İlk elemanı yeni diziye koyarak sıralanmış olarak kabul eder. => [22|27,16,2,18,6]
+Adım 2 : ikinci elemanla sıralı dizideki elemanlara karşılaştırıp küçükse soluna büyükse sağına yerleştirir. => [22,27|16,2,18,6]
+Adım 3 : üçüncü elemanla yeni dizinin elemanlarını tek tek karşılaştırarak soluna veya sağına yerleştirir. => [16,22,27|2,18,6]
+adım 4 : Dördüncü eleman da aynı şekilde yeni dizinin uygun konumuna yerleştirilir. => [2,16,22,27|18,6]
+Adım 5 : Beşinci eleman da uygun yere konumlandırılır. => [2,16,18,22,27|6]
+Adım 6 : Son eleman da uygun konuma yerleştirilir ve sorting sonlandırılır. => [2,6,16,18,22,27]
+Sıralama bitmiştir...
+Big-O gösterimi O(n^2)'dir.
+18 sayısı Average Case durumundadır.
+
+
+[7,3,5,8,2,9,4,15,6] -> Selection Sort
+Adım 1 : 2 ile 7 yer değiştirir. => [2,3,5,8,7,9,4,15,6]
+Adım 2 : 3 ile bir şey yer değiştirmez. => [2,3,5,8,7,9,4,15,6]
+Adım 3 : 5 ile 4 yer değiştirir. => [2,3,4,8,7,9,5,15,6]
+Adım 4 : 8 ile 5 yer değiştirir. => [2,3,4,5,7,9,8,15,6]
+İlk 4 adım bu şekildedir...
+
