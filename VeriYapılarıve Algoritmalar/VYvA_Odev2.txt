@@ -1,0 +1,23 @@
+[16,21,11,8,12,22] -> Merge Sort
+Adım 1 : Dizi iki parçaya bölünür. => [16,21,11,8,12,22]
+                                               /  \
+                                              v    v
+                                     [16,21,11]    [8,12,22]
+
+Adım 2 : Dizi iki parçaya bölünmeye devam eder.. => [16,21,11]    [8,12,22]
+                                           / \          / \
+                                          v   v        v   v  
+                                     [16,21] [11]   [8,12] [22]
+
+Adım 3 : Diziler tekrardan ikite bölünür. => [16,21]  [11]  [8,12]  [22]
+                                                / \     |     / \     |
+                                               v   v    v    v   v    v 
+                                             [16] [21] [11] [8] [12] [22]
+ 
+Adım 4 : Diziler karşısındaki elemanla karşılaştırılıp uygun şekilde birleştirilir. => [16,21] [11] [8,12] [22]
+Adım 5 : Tekrardan aynı işlem gerçekleşerek dizi birleşmeye devam eder. => [11,16,21] [8,12,22]
+Adım 6 : Son kez birleştirme yapılır ve dizi sıralanır. => [8,11,12,16,21,22]
+Dizi sıralanmıştır...
+
+Merge Sort'un Big-O gösterimi O(nlogn)'dir.
+
